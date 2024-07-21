@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-def summarize_youtube_transcript(youtube_url, num_chunks_to_process=20):
+def summarize_youtube_transcript(youtube_url):
     # Load YouTube Video
     loader = YoutubeLoader.from_youtube_url(youtube_url, add_video_info=True)
     transcript = loader.load()
@@ -46,7 +46,7 @@ def summarize_youtube_transcript(youtube_url, num_chunks_to_process=20):
     responses = []
 
     # Loop Begins here to fill above list of responses
-    for i in range(min(num_chunks_to_process, len(docs))):
+    for i in range(len(docs)):
         response = summarizing_chain.invoke(input={"input": docs[i].page_content})
         if isinstance(response, dict):
             response = response.get("text", "")

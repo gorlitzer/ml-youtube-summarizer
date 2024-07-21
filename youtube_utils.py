@@ -1,10 +1,16 @@
 from googleapiclient.discovery import build
 from datetime import datetime, timedelta
+from dotenv import load_dotenv
 import os
+
+# Load environment variables from .env file
+load_dotenv()
+
+api_key = os.getenv("YOUTUBE_API_KEY")
 
 
 # Create a YouTube API client
-def create_youtube_client(api_key):
+def create_youtube_client():
     """Create a YouTube API client."""
     return build("youtube", "v3", developerKey=api_key)
 

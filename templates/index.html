@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YouTube Summary API</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>YouTube Video Summarizer</h1>
+      <form action="/summarize-videos/" method="get">
+        <label for="channel_id"
+          >YouTube Channel ID: (View source from YT video and look for
+          channelID)</label
+        >
+        <input type="text" id="channel_id" name="channel_id" required />
+
+        <label for="timeframe_hours">Timeframe (hours):</label>
+        <input
+          type="number"
+          id="timeframe_hours"
+          name="timeframe_hours"
+          value="24"
+        />
+
+        <button type="submit">Get Summaries</button>
+      </form>
+    </div>
+  </body>
+</html>
